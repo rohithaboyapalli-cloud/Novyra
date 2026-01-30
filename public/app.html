@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Smart Crop Advisor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-leaf"></i> CropAdvisor
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active" data-target="dashboard"><i class="fas fa-th-large"></i>
+                        Dashboard</a></li>
+                <li><a href="#" class="nav-item" data-target="advisor"><i class="fas fa-seedling"></i> Crop Advisor</a>
+                </li>
+                <li><a href="#" class="nav-item" data-target="weather"><i class="fas fa-cloud-sun"></i> Weather Info</a>
+                </li>
+                <li><a href="#" class="nav-item" data-target="upload"><i class="fas fa-camera"></i> Disease Detect</a>
+                </li>
+                <li><a href="#" class="nav-item" data-target="market"><i class="fas fa-chart-line"></i> Market Info</a>
+                </li>
+            </ul>
+            <div class="user-profile">
+                <!-- Simple footer or user icon -->
+                <i class="fas fa-user-circle" style="font-size: 2rem; color: #ccc;"></i>
+                <span>Farmer</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="header">
+                <h2 id="page-title">Dashboard</h2>
+                <div class="date-display" id="current-date" style="color: #7f8c8d;"></div>
+            </header>
+
+            <!-- 1. Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-sun"></i></div>
+                        <div class="card-info">
+                            <h3>28°C</h3>
+                            <p>Sunny, Clear Sky</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-coins"></i></div>
+                        <div class="card-info">
+                            <h3>₹2,200</h3>
+                            <p>Wheat Price / QTL</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-tint"></i></div>
+                        <div class="card-info">
+                            <h3>65%</h3>
+                            <p>Humidity Levels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="background: linear-gradient(135deg, #2ecc71, #27ae60); padding: 30px; border-radius: 16px; color: white;">
+                    <h2>Welcome back, Farmer!</h2>
+                    <p>The season is perfect for sowing <strong>Wheat</strong> or <strong>Mustard</strong>. Check the
+                        Advisor tab for more specific details.</p>
+                    <button class="btn" style="background: white; color: #27ae60; margin-top: 15px;"
+                        onclick="document.querySelector('[data-target=\'advisor\']').click()">Get Advice</button>
+                </div>
+            </section>
+
+            <!-- 2. Crop Advisor Section -->
+            <section id="advisor" class="section">
+                <div class="card">
+                    <div style="width: 100%;">
+                        <h3 style="margin-bottom: 20px;">Find the Perfect Crop</h3>
+                        <form id="advisor-form">
+                            <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+                                <div class="form-group">
+                                    <label>Soil Type</label>
+                                    <select class="form-control" name="soil" required>
+                                        <option value="loam">Loamy Soil</option>
+                                        <option value="clay">Clay Soil</option>
+                                        <option value="black">Black Soil</option>
+                                        <option value="sandy">Sandy Soil</option>
+                                        <option value="red">Red Soil</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Season</label>
+                                    <select class="form-control" name="season" required>
+                                        <option value="kharif">Kharif (Monsoon)</option>
+                                        <option value="rabi">Rabi (Winter)</option>
+                                        <option value="zaid">Zaid (Summer)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" class="form-control" name="location"
+                                        placeholder="e.g. Punjab, North India" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Budget (₹ per acre)</label>
+                                    <input type="number" class="form-control" name="budget" placeholder="e.g. 5000"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Previous Crop</label>
+                                    <input type="text" class="form-control" name="prevCrop" placeholder="Optional">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn">Analyze & Recommend</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="advisor-result" class="results-area">
+                    <!-- Results injected here -->
+                </div>
+            </section>
+
+            <!-- 3. Weather Info Section -->
+            <section id="weather" class="section">
+                <div class="card">
+                    <div>
+                        <h3>Current Weather Analytics</h3>
+                        <p>Live data based on your location (Simulated)</p>
+                        <div style="margin-top: 20px; display: flex; gap: 40px; align-items: center;">
+                            <i class="fas fa-cloud-sun-rain" style="font-size: 5rem; color: #f1c40f;"></i>
+                            <div>
+                                <h1 style="font-size: 4rem;">28°C</h1>
+                                <p>Precipitation: 10%</p>
+                                <p>Wind: 12 km/h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div>
+                        <h4>Suggestions based on weather:</h4>
+                        <ul style="list-style-type: disc; padding-left: 20px; margin-top: 10px; color: #555;">
+                            <li>Good time for irrigation in the evening.</li>
+                            <li>Avoid spraying pesticides if rain is predicted.</li>
+                            <li>Humidity is optimal for fungal growth, check for signs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Upload/Disease Section -->
+            <section id="upload" class="section">
+                <div class="card" style="text-align: center; display: block;">
+                    <h3>Crop Disease Detection</h3>
+                    <p style="margin-bottom: 20px; color: #7f8c8d;">Upload a photo of the affected leaf to get an
+                        instant diagnosis.</p>
+
+                    <div class="upload-box" id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"
+                            style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                        <p>Drag & Drop or <strong>Click to Upload</strong></p>
+                        <input type="file" id="fileElem" accept="image/*" style="display:none">
+                    </div>
+
+                    <div id="upload-preview" style="margin-top: 20px; display: none;">
+                        <img id="preview-img" src=""
+                            style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <div id="analysis-result" style="margin-top: 15px; font-weight: 600;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Market Section -->
+            <section id="market" class="section">
+                <div class="card" style="display: block;">
+                    <h3 style="margin-bottom: 20px;">Live Market Prices</h3>
+                    <table class="market-table">
+                        <thead>
+                            <tr>
+                                <th>Crop Name</th>
+                                <th>Market Price</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody id="market-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
